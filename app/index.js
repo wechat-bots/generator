@@ -62,7 +62,7 @@ WechatBotGenerator.prototype.askFor = function askFor() {
       name: 'assertionLibrary',
       message: 'Assertion Library',
       choices: ['expect.js', 'chai', 'none'],
-      default: 'expect.js'
+      default: 'chai'
     },
     {
       type: 'input',

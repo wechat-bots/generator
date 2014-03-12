@@ -37,8 +37,7 @@
       default:
         break;
     }
-%>
-<%  if (useGrunt) { %>
+%><%  if (useGrunt) { %>
     "grunt-contrib-jshint": "~0.6.4",
     "grunt-contrib-watch": "~0.5.3",
     "grunt": "~0.4.1",
