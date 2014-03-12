@@ -4,7 +4,7 @@ var util = require('util'),
     yeoman = require('yeoman-generator'),
     gitconfig = require('git-config');
 
-var NodejsGenerator = module.exports = function NodejsGenerator(args, options, config) {
+var WechatBotGenerator = module.exports = function WechatBotGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
@@ -14,9 +14,9 @@ var NodejsGenerator = module.exports = function NodejsGenerator(args, options, c
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
-util.inherits(NodejsGenerator, yeoman.generators.Base);
+util.inherits(WechatBotGenerator, yeoman.generators.Base);
 
-NodejsGenerator.prototype.askFor = function askFor() {
+WechatBotGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   // have Yeoman greet the user.
@@ -59,13 +59,6 @@ NodejsGenerator.prototype.askFor = function askFor() {
     },
     {
       type: 'list',
-      name: 'testFramework',
-      message: 'Testing framework',
-      choices: ['mocha', 'tape', 'redtape'],
-      default: 'mocha'
-    },
-    {
-      type: 'list',
       name: 'assertionLibrary',
       message: 'Assertion Library',
       choices: ['expect.js', 'chai', 'none'],
@@ -82,7 +75,7 @@ NodejsGenerator.prototype.askFor = function askFor() {
       name: 'author',
       message: 'Author name',
       default:
-        ((config.user && config.user.name) || '') + 
+        ((config.user && config.user.name) || '') +
         (' <' + ((config.user && config.user.email) || '') + '>')
     }
   ];
@@ -95,7 +88,6 @@ NodejsGenerator.prototype.askFor = function askFor() {
     this.githubName = props.githubName;
     this.author = props.author;
     this.copyrightName = props.author.replace(/<[^>]*?>/gm, '').trim();
-    this.testFramework = props.testFramework;
     this.assertionLibrary = props.assertionLibrary;
     this.useGrunt = props.useGrunt;
 
@@ -107,7 +99,7 @@ NodejsGenerator.prototype.askFor = function askFor() {
   }.bind(this));
 };
 
-NodejsGenerator.prototype.build = function build() {
+WechatBotGenerator.prototype.build = function build() {
   this.template('_package.json', 'package.json');
 
   if (this.useGrunt) {
@@ -120,25 +112,9 @@ NodejsGenerator.prototype.build = function build() {
   this.template('README.md', 'README.md');
 };
 
-NodejsGenerator.prototype.testFrameworks = function mocha() {
+WechatBotGenerator.prototype.testFrameworks = function testFrameworks() {
   this.mkdir('test');
   this.mkdir('test/fixtures');
   this.copy('lib.js', 'index.js');
-
-  switch (this.testFramework) {
-    case 'mocha':
-      this.template('test.js', 'test/index.js');
-      break;
-
-    case 'tape':
-      this.template('test-tape.js', 'test/index.js');
-      break;
-
-    case 'redtape':
-      this.template('test-redtape.js', 'test/index.js');
-      break;
-
-    default:
-      break;
-  }
+  this.template('test.js', 'test/index.js');
 };

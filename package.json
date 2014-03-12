@@ -1,8 +1,10 @@
 {
-  "name": "generator-nodejs",
-  "version": "1.0.3",
-  "description": "A Yeoman generator for node.js modules",
+  "name": "generator-wechat-bot",
+  "version": "0.0.1",
+  "description": "A Yeoman generator for wechat bot",
   "keywords": [
+    "wechat",
+    "wechat-bot",
     "yeoman-generator",
     "mocha",
     "yeoman",
@@ -16,17 +18,17 @@
     "module",
     "modules"
   ],
-  "homepage": "https://github.com/eugeneware/generator-nodejs",
-  "bugs": "https://github.com/eugeneware/generator-nodejs/issues",
+  "homepage": "https://github.com/rogerz/generator-wechat-bot",
+  "bugs": "https://github.com/eugeneware/generator-wechat-bot/issues",
   "author": {
-    "name": "Eugene Ware",
-    "email": "eugene@noblesamurai.com",
-    "url": "https://github.com/eugeneware"
+    "name": "Rogerz Zhang",
+    "email": "rogerz.zhang@gmail.com",
+    "url": "https://github.com/rogerz"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/eugeneware/generator-nodejs.git"
+    "url": "git://github.com/rogerz/generator-wechat-bot.git"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha"

@@ -13,8 +13,7 @@ var expect = require('<%
     <%= moduleVarName %> = require('..');
 
 describe('<%= moduleName %>', function() {
-  it('should say hello', function(done) {
-    expect(<%= moduleVarName %>()).to.equal('Hello, world');
-    done();
+  it('should export middleware creater', function() {
+    expect(<%= moduleVarName %>()).to.be.a('function');
   });
 });
