@@ -18,8 +18,8 @@
     "module",
     "modules"
   ],
-  "homepage": "https://github.com/rogerz/generator-wechat-bot",
-  "bugs": "https://github.com/eugeneware/generator-wechat-bot/issues",
+  "homepage": "https://github.com/wechat-bots/generator",
+  "bugs": "https://github.com/wechat-bots/generator/issues",
   "author": {
     "name": "Rogerz Zhang",
     "email": "rogerz.zhang@gmail.com",
@@ -28,7 +28,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/rogerz/generator-wechat-bot.git"
+    "url": "git://github.com/wechat-bots/generator"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha"
